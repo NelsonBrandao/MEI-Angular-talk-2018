@@ -1,0 +1,25 @@
+<div
+  class="currency-card"
+  (click)="openCoinMarketCap(currency.id)"
+>
+  <div class="title">
+    <div class="name">
+      {{currency.name}} [{{currency.symbol}}]
+    </div>
+    <div
+      class="percentage"
+      [ngClass]="{'-down': currency.percent_change_7d < 0}"
+    >
+      {{currency.percent_change_7d}}%
+    </div>
+  </div>
+  <div class="bottom">
+    <small class="updated-on">
+      Updated On:
+      {{ currency.last_updated | date }}
+    </small>
+    <div class="price">
+      {{currency.price | currency:convertCurrency}}
+    </div>
+  </div>
+</div>
